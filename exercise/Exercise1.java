@@ -12,7 +12,8 @@ public class Exercise1 {
 
         // 入力パラメータを読み込む
         String input = br.readLine();
-        String[] param = input.split(" ");// 入力値を空白で分解する
+        // 入力値を空白で分解する
+        String[] param = input.split(" ");
 
         calc(param);
 
