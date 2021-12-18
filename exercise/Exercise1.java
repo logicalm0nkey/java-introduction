@@ -19,6 +19,7 @@ public class Exercise1 {
 
     /**
      * 計算する
+     * 
      * @param param 入力値
      */
     private static void calc(String[] param) {
@@ -34,8 +35,9 @@ public class Exercise1 {
             System.out.println("-10000 以上 10000 以下で入力してください。");
             return;
         }
-        
-        System.out.println(val1.toString() + " + " + val2.toString() + " = " + (val1.intValue() + val2.intValue()));
+
+        System.out.println(val1.toString() + " + " + val2.toString() + " = "
+                + (val1.intValue() + val2.intValue()));
     }
 
     /**
@@ -55,6 +57,7 @@ public class Exercise1 {
 
     /**
      * 入力値が規定の範囲内の値か判定する
+     * 
      * @param val1 1つ目の入力値
      * @param val2 2つ目の入力値
      * @return true: 範囲内、 false: 範囲外
