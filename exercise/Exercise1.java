@@ -15,6 +15,8 @@ public class Exercise1 {
         String[] param = input.split(" ");// 入力値を空白で分解する
 
         calc(param);
+
+        br.close();
     }
 
     /**
