@@ -35,7 +35,9 @@ public class Exercise2 {
     /**
      * 計算する
      * 
-     * @param param 入力値
+     * @param leftVal 演算子の左辺
+     * @param rightVal 演算子の右辺
+     * @param operator 演算子
      */
     private static void calc(Integer leftVal, Integer rightVal, Operator operator) {
         switch (operator) {
