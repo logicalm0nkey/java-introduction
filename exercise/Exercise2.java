@@ -10,27 +10,10 @@ import enums.Operator;
 public class Exercise2 {
     public static void main(String[] args) throws Exception {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            // 以下3行が仕様。
             String input = br.readLine();
             String[] params = input.split(" ");
 
-            // <整数 演算子 整数> の形式か判定
-            if (params.length != 3 || !isIntegers(params) || !hasOperator(params)) {
-                System.out.println("値は <整数 演算子 整数> の形式で入力してください。\n(e.g. 2 + 3)");
-                return;
-            }
-
-            var leftVal = Integer.valueOf(params[0]);
-            var rightVal = Integer.valueOf(params[2]);
-
-            if (!isInRange(leftVal, rightVal)) {
-                System.out.println("演算子の両辺は -10000 以上 10000 以下で入力してください。");
-                return;
-            }
-
-            var operator = Operator.getOperator(params[1]);
-
-            calc(leftVal, rightVal, operator);
+            calc(params);
         } catch (Exception e) {
             // Throwable インターフェースのスタックトレースを出力するテンプレ
             StringWriter sw = new StringWriter();
@@ -44,11 +27,25 @@ public class Exercise2 {
     /**
      * 計算する
      * 
-     * @param leftVal  演算子の左辺
-     * @param rightVal 演算子の右辺
-     * @param operator 演算子
+     * @param params 入力値
      */
-    private static void calc(Integer leftVal, Integer rightVal, Operator operator) {
+    private static void calc(String[] params) {
+        // <整数 演算子 整数> の形式か判定
+        if (params.length != 3 || !isIntegers(params) || !hasOperator(params)) {
+            System.out.println("値は <整数 演算子 整数> の形式で入力してください。\n(e.g. 2 + 3)");
+            return;
+        }
+
+        var leftVal = Integer.valueOf(params[0]);
+        var rightVal = Integer.valueOf(params[2]);
+
+        if (!isInRange(leftVal, rightVal)) {
+            System.out.println("演算子の両辺は -10000 以上 10000 以下で入力してください。");
+            return;
+        }
+
+        var operator = Operator.getOperator(params[1]);
+
         switch (operator) {
             case ADDITION:
                 System.out.println(leftVal.toString() + " + " + rightVal.toString() + " = "
