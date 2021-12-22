@@ -2,35 +2,43 @@ package exercise;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.regex.Pattern;
 import enums.Operator;
 
 public class Exercise2 {
     public static void main(String[] args) throws Exception {
-        // 以下3行が仕様。
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String input = br.readLine();
-        String[] params = input.split(" ");
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            // 以下3行が仕様。
+            String input = br.readLine();
+            String[] params = input.split(" ");
 
-        // <整数 演算子 整数> の形式か判定
-        if (params.length != 3 || !isIntegers(params) || !hasOperator(params)) {
-            System.out.println("値は <整数 演算子 整数> の形式で入力してください。\n(e.g. 2 + 3)");
-            return;
+            // <整数 演算子 整数> の形式か判定
+            if (params.length != 3 || !isIntegers(params) || !hasOperator(params)) {
+                System.out.println("値は <整数 演算子 整数> の形式で入力してください。\n(e.g. 2 + 3)");
+                return;
+            }
+
+            var leftVal = Integer.valueOf(params[0]);
+            var rightVal = Integer.valueOf(params[2]);
+
+            if (!isInRange(leftVal, rightVal)) {
+                System.out.println("演算子の両辺は -10000 以上 10000 以下で入力してください。");
+                return;
+            }
+
+            var operator = Operator.getOperator(params[1]);
+
+            calc(leftVal, rightVal, operator);
+        } catch (Exception e) {
+            // Throwable インターフェースのスタックトレースを出力するテンプレ
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            pw.flush();
+            System.out.println("例外発生: " + e.getMessage() + "\n" + sw.toString());
         }
-
-        var leftVal = Integer.valueOf(params[0]);
-        var rightVal = Integer.valueOf(params[2]);
-
-        if (!isInRange(leftVal, rightVal)) {
-            System.out.println("演算子の両辺は -10000 以上 10000 以下で入力してください。");
-            return;
-        }
-
-        var operator = Operator.getOperator(params[1]);
-
-        calc(leftVal, rightVal, operator);
-
-        br.close();
     }
 
     /**
