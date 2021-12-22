@@ -1,4 +1,4 @@
-package exercise;
+package enums;
 
 /**
  * 演算子
