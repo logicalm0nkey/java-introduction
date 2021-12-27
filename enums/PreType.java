@@ -7,5 +7,6 @@ package enums;
 public enum PreType {
     DEFAULT,
     INTEGER,
-    OPERATOR
+    OPERATOR,
+    BRACKETS,
 }
