@@ -15,12 +15,13 @@ public class Exercise2 {
 
             calc(params);
         } catch (Exception e) {
-            // Throwable インターフェースのスタックトレースを出力するテンプレ
+            // Throwable インターフェースのスタックトレースを String 型に変換するテンプレ
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             pw.flush();
             System.out.println("例外発生: " + e.getMessage() + "\n" + sw.toString());
+            // スタックトレースをターミナルに出力するだけなら e.printStackTrace() だけでできる。
         }
     }
 
