@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -30,6 +31,8 @@ public class KnowledgeExercise1 {
             }
         } catch (FileNotFoundException fe) {
             System.out.println(fe.getMessage());
+        } catch (IOException ie) {
+            System.out.println(ie.getMessage());
         }
     }
 }
