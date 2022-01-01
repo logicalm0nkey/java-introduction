@@ -19,12 +19,14 @@ public class KnowledgeExercise1 {
             File txtA = new File(args[0]);
             // resources/textB.txt
             File txtB = new File(args[1]);
+
             try (BufferedReader br = new BufferedReader(
                     new InputStreamReader(new FileInputStream(txtA), Charset.forName("UTF8")));
                     // テキストをファイルに追記するときは FileOutputStream のコンストラクタの第2引数で true を指定する
                     PrintWriter pw = new PrintWriter(
                             new BufferedWriter(new OutputStreamWriter(new FileOutputStream(txtB), "UTF8")))) {
                 String txt;
+                
                 while ((txt = br.readLine()) != null) {
                     pw.println(txt);
                 }

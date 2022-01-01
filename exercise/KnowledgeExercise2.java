@@ -14,9 +14,10 @@ public class KnowledgeExercise2 {
             // resources/アイコン.png
             File icon = new File(args[0]);
             // resources/copy.png
-            File txtB = new File(args[1]);
+            File copy = new File(args[1]);
+
             try (BufferedInputStream biStream = new BufferedInputStream(new FileInputStream(icon));
-                    BufferedOutputStream boStream = new BufferedOutputStream(new FileOutputStream(txtB))) {
+                    BufferedOutputStream boStream = new BufferedOutputStream(new FileOutputStream(copy))) {
                 // 読み込み用バイト列
                 byte[] buf = new byte[4096];
                 int length;
