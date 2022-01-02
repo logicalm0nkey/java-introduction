@@ -17,10 +17,10 @@ public class KnowledgeExercise4 {
 
         try {
             // resources/textC.txt
-            File txtA = new File(args[0]);
+            File txtC = new File(args[0]);
 
             try (BufferedReader br = new BufferedReader(
-                    new InputStreamReader(new FileInputStream(txtA), Charset.forName("UTF8")))) {
+                    new InputStreamReader(new FileInputStream(txtC), Charset.forName("UTF8")))) {
                 String txt;
 
                 while ((txt = br.readLine()) != null) {
